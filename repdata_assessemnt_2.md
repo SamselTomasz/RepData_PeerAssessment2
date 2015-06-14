@@ -1,11 +1,6 @@
----
-title: 'Reproducible Research: Peer Assessment 2'
-author: "Tomasz Samsel"
-date: "05/24/2015"
-output: 
-  html_document: 
-    keep_md: yes
----
+# Reproducible Research: Peer Assessment 2
+Tomasz Samsel  
+05/24/2015  
 
 
 # Impact of Severe Weather Events on Public Health and Economy in the United States
@@ -20,7 +15,8 @@ Libraries required for data processing are: R.utils, dplyr and ggplot.
 
 ### Loading the data.
 
-```{r, echo=TRUE, cache=TRUE}
+
+```r
 # download file from URL
 if (!file.exists("storm.csv.bz2")) {
         file <- "http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2"
@@ -37,14 +33,14 @@ if (!file.exists("storm.csv")) {
 # load data into R
 
 data <- read.csv("storm.csv")
-
 ```
 
 ### Reshaping the data.
 
 Now, for further analysis we need to change factor walues of PROPDMGEXP and CROPDMGEXP to numeric values of damage coused by events. Group data by events occured, and do summary on the groups to have a clean data for plotting.
 
-```{r, echo=TRUE, cache=TRUE}
+
+```r
 ## Updating the property exponent data
 
 data$PROPEXP[data$PROPDMGEXP == "K"] <- 1000
@@ -105,16 +101,22 @@ sumCrop10 <- sumCrop[order(-sumCrop$crop), ][1:10, ]
 
 Below are plots for all four aspects we are interested in; injuries, fatalities, damage done to property and crop. For easier visualisation we put on the plots only top 10 of events cousing the damage.
 
-```{r, echo=TRUE, cache=TRUE}
 
+```r
 par(mfrow = c(1, 2), mar = c(12, 4, 3, 2), mgp = c(3, 1, 0), cex = 0.8)
 barplot(sumFat10$fatalities, las = 3, names.arg = sumFat10$EVTYPE, main = "Weather Events With The Top 10 Highest Fatalities", ylab = "number of fatalities", col = "red")
 barplot(sumInj10$injuries, las = 3, names.arg = sumInj10$EVTYPE, main = "Weather Events With the Top 10 Highest Injuries", ylab = "number of injuries", col = "red")
+```
 
+![](repdata_assessemnt_2_files/figure-html/unnamed-chunk-3-1.png) 
+
+```r
 par(mfrow = c(1, 2), mar = c(12, 4, 3, 2), mgp = c(3, 1, 0), cex = 0.8)
 barplot(sumProp10$property/(10^9), las = 3, names.arg = sumProp10$EVTYPE, main = "Top 10 Events with Greatest Property Damages", ylab = "Cost of damages ($ billions)", col = "red")
 barplot(sumCrop10$crop/(10^9), las = 3, names.arg = sumCrop10$EVTYPE, main = "Top 10 Events With Greatest Crop Damages", ylab = "Cost of damages ($ billions)", col = "red")
 ```
+
+![](repdata_assessemnt_2_files/figure-html/unnamed-chunk-3-2.png) 
 
 ## Summarry.
 
