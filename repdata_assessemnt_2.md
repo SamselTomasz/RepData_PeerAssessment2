@@ -1,3 +1,6 @@
+---
+output: pdf_document
+---
 # Reproducible Research: Peer Assessment 2
 Tomasz Samsel  
 05/24/2015  

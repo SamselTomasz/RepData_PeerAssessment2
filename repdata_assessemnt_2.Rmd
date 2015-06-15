@@ -2,9 +2,10 @@
 title: 'Reproducible Research: Peer Assessment 2'
 author: "Tomasz Samsel"
 date: "05/24/2015"
-output: 
-  html_document: 
-    keep_md: yes
+output:
+  pdf_document: default
+  html_document:
+    theme: journal
 ---
 
 
