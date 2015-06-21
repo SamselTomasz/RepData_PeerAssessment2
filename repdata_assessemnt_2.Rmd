@@ -1,11 +1,11 @@
 ---
 title: 'Reproducible Research: Peer Assessment 2'
 author: "Tomasz Samsel"
-date: "05/24/2015"
+date: "06/21/2015"
 output:
-  pdf_document: default
   html_document:
     theme: journal
+  pdf_document: default
 ---
 
 
@@ -17,7 +17,7 @@ Storm and other severe weather events can cause both public health and economic 
 
 ## Data processing.
 
-Libraries required for data processing are: R.utils, dplyr and ggplot.
+Libraries required for data processing are: R.utils and dplyr.
 
 ### Loading the data.
 
